@@ -30,7 +30,7 @@ public class App {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // Java 8 stuff
+        // Java 8 stuff!!!
 
         Runnable noArguments = () -> System.out.println("Hello World");
 
