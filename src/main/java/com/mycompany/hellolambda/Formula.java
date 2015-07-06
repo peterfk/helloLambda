@@ -9,6 +9,7 @@ package com.mycompany.hellolambda;
  *
  * @author pkipping
  */
+//new java 8 interface
 public interface Formula {
 
     double calculate(int a);

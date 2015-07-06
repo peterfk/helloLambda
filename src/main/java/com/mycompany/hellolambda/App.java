@@ -31,6 +31,8 @@ public class App {
      */
     public static void main(String[] args) {
         // Java 8 stuff!!!
+        
+        //another comment
 
         Runnable noArguments = () -> System.out.println("Hello World");
 
