@@ -26,101 +26,100 @@ import static org.junit.Assert.*;
  */
 public class App {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // Java 8 stuff!!!
-        
-        //another comment
+	/**
+	 * @param args the command line arguments
+	 */
+	public static void main(String[] args) {
+		// Java 8 stuff!!!
 
-        Runnable noArguments = () -> System.out.println("Hello World");
+		//another comment
+		Runnable noArguments = () -> System.out.println("Hello World");
 
-        BinaryOperator<Long> add = (x, y) -> x + y;
+		BinaryOperator<Long> add = (x, y) -> x + y;
 
-        BinaryOperator<Long> addExplicit = (Long x, Long y) -> x + y;
+		BinaryOperator<Long> addExplicit = (Long x, Long y) -> x + y;
 
-        Predicate<Integer> atLeast5 = x -> x > 5;
+		Predicate<Integer> atLeast5 = x -> x > 5;
 
-        List<String> collected = Stream.of("a", "b", "hello")
-                .map(string -> string.toUpperCase())
-                .collect(toList());
+		List<String> collected = Stream.of("a", "b", "hello")
+			.map(string -> string.toUpperCase())
+			.collect(toList());
 
-        assertEquals(asList("A", "B", "HELLO"), collected);
+		assertEquals(asList("A", "B", "HELLO"), collected);
 
-        List<String> beginningWithNumbers
-                = Stream.of("a", "1abc", "abc1")
-                .filter(value -> isDigit(value.charAt(0)))
-                .collect(toList());
+		List<String> beginningWithNumbers
+			= Stream.of("a", "1abc", "abc1")
+				.filter(value -> isDigit(value.charAt(0)))
+				.collect(toList());
 
-        assertEquals(asList("1abc"), beginningWithNumbers);
+		assertEquals(asList("1abc"), beginningWithNumbers);
 
-        List<String> stringCollection = new ArrayList<>();
-        stringCollection.add("ddd2");
-        stringCollection.add("aaa2");
-        stringCollection.add("bbb1");
-        stringCollection.add("aaa1");
-        stringCollection.add("bbb3");
-        stringCollection.add("ccc");
-        stringCollection.add("bbb2");
-        stringCollection.add("ddd1");
+		List<String> stringCollection = new ArrayList<>();
+		stringCollection.add("ddd2");
+		stringCollection.add("aaa2");
+		stringCollection.add("bbb1");
+		stringCollection.add("aaa1");
+		stringCollection.add("bbb3");
+		stringCollection.add("ccc");
+		stringCollection.add("bbb2");
+		stringCollection.add("ddd1");
 
-        stringCollection
-                .stream()
-                .filter((s) -> s.startsWith("a"))
-                .forEach(System.out::println);
+		stringCollection
+			.stream()
+			.filter((s) -> s.startsWith("a"))
+			.forEach(System.out::println);
 
-        stringCollection
-                .stream()
-                .sorted()
-                .filter((s) -> s.startsWith("a"))
-                .forEach(System.out::println);
+		stringCollection
+			.stream()
+			.sorted()
+			.filter((s) -> s.startsWith("a"))
+			.forEach(System.out::println);
 
-        System.out.println(stringCollection);
+		System.out.println(stringCollection);
 
-        stringCollection
-                .stream()
-                .map(String::toUpperCase)
-                .sorted((a, b) -> b.compareTo(a))
-                .forEach(System.out::println);
+		stringCollection
+			.stream()
+			.map(String::toUpperCase)
+			.sorted((a, b) -> b.compareTo(a))
+			.forEach(System.out::println);
 
-        Optional<String> reduced
-                = stringCollection
-                .stream()
-                .sorted()
-                .reduce((s1, s2) -> s1 + "#" + s2);
+		Optional<String> reduced
+			= stringCollection
+				.stream()
+				.sorted()
+				.reduce((s1, s2) -> s1 + "#" + s2);
 
-        reduced.ifPresent(System.out::println);
+		reduced.ifPresent(System.out::println);
 
-        int max = 1000;
-        List<String> values = new ArrayList<>(max);
-        for (int i = 0; i < max; i++) {
-            UUID uuid = UUID.randomUUID();
-            values.add(uuid.toString());
-        }
+		int max = 1000;
+		List<String> values = new ArrayList<>(max);
+		for (int i = 0; i < max; i++) {
+			UUID uuid = UUID.randomUUID();
+			values.add(uuid.toString());
+		}
 
-        long t0 = System.nanoTime();
+		long t0 = System.nanoTime();
 
 //        long count = values.stream().sorted().count();
-        long count = values.parallelStream().sorted().count();
+		long count = values.parallelStream().sorted().count();
 
-        System.out.println(count);
+		System.out.println(count);
 
-        long t1 = System.nanoTime();
+		long t1 = System.nanoTime();
 
-        long millis = TimeUnit.NANOSECONDS.toMillis(t1 - t0);
-        System.out.println(String.format("sequential or parallel sort took: %d ms", millis));
+		long millis = TimeUnit.NANOSECONDS.toMillis(t1 - t0);
+		System.out.println(String.format("sequential or parallel sort took: %d ms", millis));
 
-        List<String> myList
-                = Arrays.asList("a1", "a2", "b1", "c2", "c1");
+		List<String> myList
+			= Arrays.asList("a1", "a2", "b1", "c2", "c1");
 
-        myList
-                .stream()
-                .filter(s -> s.startsWith("c"))
-                .map(String::toUpperCase)
-                .sorted()
-                .forEach(System.out::println);
+		myList
+			.stream()
+			.filter(s -> s.startsWith("c"))
+			.map(String::toUpperCase)
+			.sorted()
+			.forEach(System.out::println);
 
-    }
+	}
 
 }
