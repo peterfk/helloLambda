@@ -33,6 +33,7 @@ public class App {
 		// Java 8 stuff!!!
 
 		//another comment
+        //using IntelliJ now
 		Runnable noArguments = () -> System.out.println("Hello World");
 
 		BinaryOperator<Long> add = (x, y) -> x + y;
