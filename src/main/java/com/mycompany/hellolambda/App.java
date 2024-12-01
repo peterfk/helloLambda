@@ -66,7 +66,8 @@ public class App {
 		List<List<Integer>> listOfLists = Arrays.asList(
 				Arrays.asList(1, 2, 3),
 				Arrays.asList(4, 5),
-				Arrays.asList(6, 7, 8)
+				Arrays.asList(6, 7, 8),
+				Arrays.asList(10, 11, 13, 15)
 		);
 
 		List<Integer> flattenedList = listOfLists.stream()
