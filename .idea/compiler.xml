@@ -9,8 +9,5 @@
         <module name="helloLambda" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="helloLambda" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
